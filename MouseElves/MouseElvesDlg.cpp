@@ -20,6 +20,11 @@ CMouseElvesDlg::CMouseElvesDlg(CWnd* pParent /*=NULL*/)
     : CDialogEx(CMouseElvesDlg::IDD, pParent)
     , m_nLkey(0)
     , m_nClick(0)
+    , m_nFrequency(0)
+    , m_nPX(0)
+    , m_nPX2(0)
+    , m_nPY(0)
+    , m_nPY2(0)
 {
     m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -32,6 +37,13 @@ void CMouseElvesDlg::DoDataExchange(CDataExchange* pDX)
     DDX_Control(pDX, IDC_EDT_PX, m_editPX);
     DDX_Control(pDX, IDC_EDT_PY, m_editPY);
     DDX_Control(pDX, IDC_EDT_FREQUENCY, m_editFrequency);
+    DDX_Control(pDX, IDC_EDT_PX2, m_editPX2);
+    DDX_Control(pDX, IDC_EDT_PY2, m_editPY2);
+    DDX_Text(pDX, IDC_EDT_FREQUENCY, m_nFrequency);
+    DDX_Text(pDX, IDC_EDT_PX, m_nPX);
+    DDX_Text(pDX, IDC_EDT_PX2, m_nPX2);
+    DDX_Text(pDX, IDC_EDT_PY, m_nPY);
+    DDX_Text(pDX, IDC_EDT_PY2, m_nPY2);
 }
 
 BEGIN_MESSAGE_MAP(CMouseElvesDlg, CDialogEx)
@@ -93,10 +105,19 @@ HCURSOR CMouseElvesDlg::OnQueryDragIcon()
 
 void CMouseElvesDlg::OnBnClickedRdoLkey()
 {
+    ((CButton *)GetDlgItem(IDC_RDO_DOUBLE))->EnableWindow(TRUE);
 }
 
 void CMouseElvesDlg::OnBnClickedRdoRkey()
 {
+    if(((CButton *)GetDlgItem(IDC_RDO_DOUBLE))->GetCheck())
+    {
+        ((CButton *)GetDlgItem(IDC_RDO_DOUBLE))->SetCheck(FALSE);
+        ((CButton *)GetDlgItem(IDC_RDO_CLICK))->SetCheck(TRUE);
+        ((CButton *)GetDlgItem(IDC_RDO_DOUBLE))->EnableWindow(FALSE);
+    }
+
+    ((CButton *)GetDlgItem(IDC_RDO_CLICK))->SetCheck(TRUE);
 }
 
 void CMouseElvesDlg::OnBnClickedRdoClick()
@@ -109,20 +130,52 @@ void CMouseElvesDlg::OnBnClickedRdoDouble()
 
 void CMouseElvesDlg::OnBnClickedBtnStart()
 {
-    //CPoint point;
-    //GetCursorPos(&point);
-    //int i = 3;
-    //while(i--)
-    //{
-    //    SetCursorPos(440, 255);
-    //    mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
-    //    mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
-    //    SetCursorPos(502, 238);
-    //    mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
-    //    mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
-    //}
-    CString t_szFrequency;
-    m_editFrequency.GetWindowText(t_szFrequency);
-    AfxMessageBox(t_szFrequency);
-    t_szFrequency.ReleaseBuffer();
+    UpdateData(TRUE);
+
+    if(((CButton *)GetDlgItem(IDC_RDO_LKEY))->GetCheck())
+    {
+        while(m_nFrequency--)
+        {
+            if(((CButton *)GetDlgItem(IDC_RDO_CLICK))->GetCheck())
+            {
+                SetCursorPos(m_nPX, m_nPY);
+                mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
+                mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
+                SetCursorPos(m_nPX2, m_nPY2);
+                mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
+                mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
+                AfxMessageBox(_T("1"));
+            }
+            else if(((CButton *)GetDlgItem(IDC_RDO_DOUBLE))->GetCheck())
+            {
+                SetCursorPos(m_nPX, m_nPY);
+                mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
+                mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
+                mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
+                mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
+                SetCursorPos(m_nPX2, m_nPY2);
+                mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
+                mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
+                mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
+                mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
+                AfxMessageBox(_T("1"));
+            }
+        }
+    }
+    else if(((CButton *)GetDlgItem(IDC_RDO_RKEY))->GetCheck())
+    {
+        while(m_nFrequency--)
+        {
+            if(((CButton *)GetDlgItem(IDC_RDO_CLICK))->GetCheck())
+            {
+                SetCursorPos(m_nPX, m_nPY);
+                mouse_event(MOUSEEVENTF_RIGHTDOWN, 0, 0, 0, 0);
+                mouse_event(MOUSEEVENTF_RIGHTUP, 0, 0, 0, 0);
+                SetCursorPos(m_nPX2, m_nPY2);
+                mouse_event(MOUSEEVENTF_RIGHTDOWN, 0, 0, 0, 0);
+                mouse_event(MOUSEEVENTF_RIGHTUP, 0, 0, 0, 0);
+                AfxMessageBox(_T("1"));
+            }
+        }
+    }
 }

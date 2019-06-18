@@ -40,4 +40,11 @@ public:
 	CEdit m_editPX;
 	CEdit m_editPY;
 	CEdit m_editFrequency;
+	CEdit m_editPX2;
+	CEdit m_editPY2;
+	int m_nFrequency;
+	int m_nPX;
+	int m_nPX2;
+	int m_nPY;
+	int m_nPY2;
 };

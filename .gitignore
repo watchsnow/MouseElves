@@ -1,4 +1,6 @@
 /*.sdf
 /*.suo
+/*.opensdf
 /Debug
+/ipch
 /SimulatedMouseClick/Debug

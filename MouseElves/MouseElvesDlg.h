@@ -1,19 +1,19 @@
 
-// SimulatedMouseClickDlg.h : 头文件
+// MouseElvesDlg.h : 头文件
 //
 
 #pragma once
 
 
-// CSimulatedMouseClickDlg 对话框
-class CSimulatedMouseClickDlg : public CDialogEx
+// CMouseElvesDlg 对话框
+class CMouseElvesDlg : public CDialogEx
 {
 // 构造
 public:
-    CSimulatedMouseClickDlg(CWnd* pParent = NULL);  // 标准构造函数
+    CMouseElvesDlg(CWnd* pParent = NULL);   // 标准构造函数
 
 // 对话框数据
-    enum { IDD = IDD_SIMULATEDMOUSECLICK_DIALOG };
+    enum { IDD = IDD_MOUSEELVES_DIALOG };
 
 protected:
     virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV 支持
@@ -29,5 +29,5 @@ protected:
     afx_msg HCURSOR OnQueryDragIcon();
     DECLARE_MESSAGE_MAP()
 public:
-    afx_msg void OnBnClickedButtonStart();
+    afx_msg void OnBnClickedBtnStart();
 };

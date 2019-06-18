@@ -1,10 +1,10 @@
 
-// SimulatedMouseClickDlg.cpp : 实现文件
+// MouseElvesDlg.cpp : 实现文件
 //
 
 #include "stdafx.h"
-#include "SimulatedMouseClick.h"
-#include "SimulatedMouseClickDlg.h"
+#include "MouseElves.h"
+#include "MouseElvesDlg.h"
 #include "afxdialogex.h"
 
 #ifdef _DEBUG
@@ -12,31 +12,31 @@
 #endif
 
 
-// CSimulatedMouseClickDlg 对话框
+// CMouseElvesDlg 对话框
 
 
 
-CSimulatedMouseClickDlg::CSimulatedMouseClickDlg(CWnd* pParent /*=NULL*/)
-    : CDialogEx(CSimulatedMouseClickDlg::IDD, pParent)
+CMouseElvesDlg::CMouseElvesDlg(CWnd* pParent /*=NULL*/)
+    : CDialogEx(CMouseElvesDlg::IDD, pParent)
 {
     m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
 
-void CSimulatedMouseClickDlg::DoDataExchange(CDataExchange* pDX)
+void CMouseElvesDlg::DoDataExchange(CDataExchange* pDX)
 {
     CDialogEx::DoDataExchange(pDX);
 }
 
-BEGIN_MESSAGE_MAP(CSimulatedMouseClickDlg, CDialogEx)
+BEGIN_MESSAGE_MAP(CMouseElvesDlg, CDialogEx)
     ON_WM_PAINT()
     ON_WM_QUERYDRAGICON()
-    ON_BN_CLICKED(IDC_BUTTON_START, &CSimulatedMouseClickDlg::OnBnClickedButtonStart)
+    ON_BN_CLICKED(IDC_BTN_START, &CMouseElvesDlg::OnBnClickedBtnStart)
 END_MESSAGE_MAP()
 
 
-// CSimulatedMouseClickDlg 消息处理程序
+// CMouseElvesDlg 消息处理程序
 
-BOOL CSimulatedMouseClickDlg::OnInitDialog()
+BOOL CMouseElvesDlg::OnInitDialog()
 {
     CDialogEx::OnInitDialog();
     // 设置此对话框的图标。  当应用程序主窗口不是对话框时，框架将自动
@@ -51,7 +51,7 @@ BOOL CSimulatedMouseClickDlg::OnInitDialog()
 //  来绘制该图标。  对于使用文档/视图模型的 MFC 应用程序，
 //  这将由框架自动完成。
 
-void CSimulatedMouseClickDlg::OnPaint()
+void CMouseElvesDlg::OnPaint()
 {
     if(IsIconic())
     {
@@ -75,20 +75,20 @@ void CSimulatedMouseClickDlg::OnPaint()
 
 //当用户拖动最小化窗口时系统调用此函数取得光标
 //显示。
-HCURSOR CSimulatedMouseClickDlg::OnQueryDragIcon()
+HCURSOR CMouseElvesDlg::OnQueryDragIcon()
 {
     return static_cast<HCURSOR>(m_hIcon);
 }
 
 
 
-void CSimulatedMouseClickDlg::OnBnClickedButtonStart()
+void CMouseElvesDlg::OnBnClickedBtnStart()
 {
     CPoint point;
     GetCursorPos(&point);
-    int i = 50;
+    int i = 3;
 
-    while(--i)
+    while(i--)
     {
         SetCursorPos(440, 255);
         mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);

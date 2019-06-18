@@ -11,8 +11,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{BD33FC51-076F-4934-9BDA-6857779A1935}</ProjectGuid>
-    <RootNamespace>SimulatedMouseClick</RootNamespace>
+    <ProjectGuid>{1B1C2349-0E47-4DFC-87B6-4C9114D8114D}</ProjectGuid>
+    <RootNamespace>MouseElves</RootNamespace>
     <Keyword>MFCProj</Keyword>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -21,7 +21,7 @@
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v120</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
-    <UseOfMfc>Static</UseOfMfc>
+    <UseOfMfc>Dynamic</UseOfMfc>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -29,7 +29,7 @@
     <PlatformToolset>v120</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
-    <UseOfMfc>Static</UseOfMfc>
+    <UseOfMfc>Dynamic</UseOfMfc>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -99,35 +99,35 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="MouseElves.h" />
+    <ClInclude Include="MouseElvesDlg.h" />
     <ClInclude Include="Resource.h" />
-    <ClInclude Include="SimulatedMouseClick.h" />
-    <ClInclude Include="SimulatedMouseClickDlg.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="SimulatedMouseClick.cpp" />
-    <ClCompile Include="SimulatedMouseClickDlg.cpp" />
+    <ClCompile Include="MouseElves.cpp" />
+    <ClCompile Include="MouseElvesDlg.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="SimulatedMouseClick.rc" />
+    <ResourceCompile Include="MouseElves.rc" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\SimulatedMouseClick.rc2" />
+    <None Include="res\MouseElves.rc2" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="res\SimulatedMouseClick.ico" />
+    <Image Include="res\MouseElves.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties RESOURCE_FILE="SimulatedMouseClick.rc" />
+      <UserProperties RESOURCE_FILE="MouseElves.rc" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

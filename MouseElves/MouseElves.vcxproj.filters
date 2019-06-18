@@ -18,10 +18,10 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SimulatedMouseClick.h">
+    <ClInclude Include="MouseElves.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="SimulatedMouseClickDlg.h">
+    <ClInclude Include="MouseElvesDlg.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="stdafx.h">
@@ -35,10 +35,10 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="SimulatedMouseClick.cpp">
+    <ClCompile Include="MouseElves.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="SimulatedMouseClickDlg.cpp">
+    <ClCompile Include="MouseElvesDlg.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
@@ -46,17 +46,17 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="SimulatedMouseClick.rc">
+    <ResourceCompile Include="MouseElves.rc">
       <Filter>资源文件</Filter>
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\SimulatedMouseClick.rc2">
+    <None Include="res\MouseElves.rc2">
       <Filter>资源文件</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="res\SimulatedMouseClick.ico">
+    <Image Include="res\MouseElves.ico">
       <Filter>资源文件</Filter>
     </Image>
   </ItemGroup>

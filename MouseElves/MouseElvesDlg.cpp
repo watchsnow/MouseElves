@@ -143,7 +143,6 @@ void CMouseElvesDlg::OnBnClickedBtnStart()
                 SetCursorPos(m_nPX2, m_nPY2);
                 mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
                 mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
-                AfxMessageBox(_T("1"));
             }
             else if(((CButton *)GetDlgItem(IDC_RDO_DOUBLE))->GetCheck())
             {
@@ -157,7 +156,6 @@ void CMouseElvesDlg::OnBnClickedBtnStart()
                 mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
                 mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
                 mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
-                AfxMessageBox(_T("1"));
             }
         }
     }
@@ -173,7 +171,6 @@ void CMouseElvesDlg::OnBnClickedBtnStart()
                 SetCursorPos(m_nPX2, m_nPY2);
                 mouse_event(MOUSEEVENTF_RIGHTDOWN, 0, 0, 0, 0);
                 mouse_event(MOUSEEVENTF_RIGHTUP, 0, 0, 0, 0);
-                AfxMessageBox(_T("1"));
             }
         }
     }

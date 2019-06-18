@@ -106,17 +106,15 @@ HCURSOR CMouseElvesDlg::OnQueryDragIcon()
 void CMouseElvesDlg::OnBnClickedRdoLkey()
 {
     ((CButton *)GetDlgItem(IDC_RDO_DOUBLE))->EnableWindow(TRUE);
+    UpdateData(TRUE);
 }
 
 void CMouseElvesDlg::OnBnClickedRdoRkey()
 {
     ((CButton *)GetDlgItem(IDC_RDO_CLICK))->SetCheck(TRUE);
-
-    if(((CButton *)GetDlgItem(IDC_RDO_DOUBLE))->GetCheck())
-    {
-        ((CButton *)GetDlgItem(IDC_RDO_DOUBLE))->SetCheck(FALSE);
-        ((CButton *)GetDlgItem(IDC_RDO_DOUBLE))->EnableWindow(FALSE);
-    }
+    ((CButton *)GetDlgItem(IDC_RDO_DOUBLE))->SetCheck(FALSE);
+    ((CButton *)GetDlgItem(IDC_RDO_DOUBLE))->EnableWindow(FALSE);
+    UpdateData(TRUE);
 }
 
 void CMouseElvesDlg::OnBnClickedRdoClick()
@@ -137,6 +135,7 @@ void CMouseElvesDlg::OnBnClickedBtnStart()
         {
             if(((CButton *)GetDlgItem(IDC_RDO_CLICK))->GetCheck())
             {
+                // 只是为了去除屏蔽的人 只做了左键单击的处理
                 SetCursorPos(m_nPX, m_nPY);
                 mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
                 mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
@@ -146,16 +145,7 @@ void CMouseElvesDlg::OnBnClickedBtnStart()
             }
             else if(((CButton *)GetDlgItem(IDC_RDO_DOUBLE))->GetCheck())
             {
-                SetCursorPos(m_nPX, m_nPY);
-                mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
-                mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
-                mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
-                mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
-                SetCursorPos(m_nPX2, m_nPY2);
-                mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
-                mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
-                mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
-                mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
+                // TODO:  添加左键双击的处理
             }
         }
     }
@@ -165,12 +155,7 @@ void CMouseElvesDlg::OnBnClickedBtnStart()
         {
             if(((CButton *)GetDlgItem(IDC_RDO_CLICK))->GetCheck())
             {
-                SetCursorPos(m_nPX, m_nPY);
-                mouse_event(MOUSEEVENTF_RIGHTDOWN, 0, 0, 0, 0);
-                mouse_event(MOUSEEVENTF_RIGHTUP, 0, 0, 0, 0);
-                SetCursorPos(m_nPX2, m_nPY2);
-                mouse_event(MOUSEEVENTF_RIGHTDOWN, 0, 0, 0, 0);
-                mouse_event(MOUSEEVENTF_RIGHTUP, 0, 0, 0, 0);
+                // TODO:  添加右键单击的处理
             }
         }
     }

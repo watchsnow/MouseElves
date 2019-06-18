@@ -110,14 +110,13 @@ void CMouseElvesDlg::OnBnClickedRdoLkey()
 
 void CMouseElvesDlg::OnBnClickedRdoRkey()
 {
+    ((CButton *)GetDlgItem(IDC_RDO_CLICK))->SetCheck(TRUE);
+
     if(((CButton *)GetDlgItem(IDC_RDO_DOUBLE))->GetCheck())
     {
         ((CButton *)GetDlgItem(IDC_RDO_DOUBLE))->SetCheck(FALSE);
-        ((CButton *)GetDlgItem(IDC_RDO_CLICK))->SetCheck(TRUE);
         ((CButton *)GetDlgItem(IDC_RDO_DOUBLE))->EnableWindow(FALSE);
     }
-
-    ((CButton *)GetDlgItem(IDC_RDO_CLICK))->SetCheck(TRUE);
 }
 
 void CMouseElvesDlg::OnBnClickedRdoClick()

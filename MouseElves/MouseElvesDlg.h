@@ -3,6 +3,7 @@
 //
 
 #pragma once
+#include "afxwin.h"
 
 
 // CMouseElvesDlg ¶Ô»°¿ò
@@ -30,4 +31,13 @@ protected:
     DECLARE_MESSAGE_MAP()
 public:
     afx_msg void OnBnClickedBtnStart();
+	int m_nLkey;
+	int m_nClick;
+	afx_msg void OnBnClickedRdoLkey();
+	afx_msg void OnBnClickedRdoClick();
+	afx_msg void OnBnClickedRdoRkey();
+	afx_msg void OnBnClickedRdoDouble();
+	CEdit m_editPX;
+	CEdit m_editPY;
+	CEdit m_editFrequency;
 };

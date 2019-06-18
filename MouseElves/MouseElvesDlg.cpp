@@ -18,6 +18,8 @@
 
 CMouseElvesDlg::CMouseElvesDlg(CWnd* pParent /*=NULL*/)
     : CDialogEx(CMouseElvesDlg::IDD, pParent)
+    , m_nLkey(0)
+    , m_nClick(0)
 {
     m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -25,12 +27,21 @@ CMouseElvesDlg::CMouseElvesDlg(CWnd* pParent /*=NULL*/)
 void CMouseElvesDlg::DoDataExchange(CDataExchange* pDX)
 {
     CDialogEx::DoDataExchange(pDX);
+    DDX_Radio(pDX, IDC_RDO_LKEY, m_nLkey);
+    DDX_Radio(pDX, IDC_RDO_CLICK, m_nClick);
+    DDX_Control(pDX, IDC_EDT_PX, m_editPX);
+    DDX_Control(pDX, IDC_EDT_PY, m_editPY);
+    DDX_Control(pDX, IDC_EDT_FREQUENCY, m_editFrequency);
 }
 
 BEGIN_MESSAGE_MAP(CMouseElvesDlg, CDialogEx)
     ON_WM_PAINT()
     ON_WM_QUERYDRAGICON()
     ON_BN_CLICKED(IDC_BTN_START, &CMouseElvesDlg::OnBnClickedBtnStart)
+    ON_BN_CLICKED(IDC_RDO_LKEY, &CMouseElvesDlg::OnBnClickedRdoLkey)
+    ON_BN_CLICKED(IDC_RDO_CLICK, &CMouseElvesDlg::OnBnClickedRdoClick)
+    ON_BN_CLICKED(IDC_RDO_RKEY, &CMouseElvesDlg::OnBnClickedRdoRkey)
+    ON_BN_CLICKED(IDC_RDO_DOUBLE, &CMouseElvesDlg::OnBnClickedRdoDouble)
 END_MESSAGE_MAP()
 
 
@@ -80,21 +91,38 @@ HCURSOR CMouseElvesDlg::OnQueryDragIcon()
     return static_cast<HCURSOR>(m_hIcon);
 }
 
+void CMouseElvesDlg::OnBnClickedRdoLkey()
+{
+}
 
+void CMouseElvesDlg::OnBnClickedRdoRkey()
+{
+}
+
+void CMouseElvesDlg::OnBnClickedRdoClick()
+{
+}
+
+void CMouseElvesDlg::OnBnClickedRdoDouble()
+{
+}
 
 void CMouseElvesDlg::OnBnClickedBtnStart()
 {
-    CPoint point;
-    GetCursorPos(&point);
-    int i = 3;
-
-    while(i--)
-    {
-        SetCursorPos(440, 255);
-        mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
-        mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
-        SetCursorPos(502, 238);
-        mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
-        mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
-    }
+    //CPoint point;
+    //GetCursorPos(&point);
+    //int i = 3;
+    //while(i--)
+    //{
+    //    SetCursorPos(440, 255);
+    //    mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
+    //    mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
+    //    SetCursorPos(502, 238);
+    //    mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
+    //    mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
+    //}
+    CString t_szFrequency;
+    m_editFrequency.GetWindowText(t_szFrequency);
+    AfxMessageBox(t_szFrequency);
+    t_szFrequency.ReleaseBuffer();
 }
